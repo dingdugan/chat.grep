@@ -1,7 +1,7 @@
 {
   "name": "chatgrep",
   "version": "0.1.0",
-  "description": "Search and distill all your AI coding sessions — Claude Code, Codex — fully local, CJK-friendly, with a compounding loop into CLAUDE.md.",
+  "description": "Search and distill all your AI coding sessions \u2014 Claude Code, Codex \u2014 fully local, CJK-friendly, with a compounding loop into CLAUDE.md.",
   "license": "MIT",
   "keywords": [
     "claude-code",
@@ -27,7 +27,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/cli.ts",
-    "test": "node --test --import tsx test/*.test.ts"
+    "test": "node --test --import tsx test/*.test.ts",
+    "prepublishOnly": "npm run build && npm test"
   },
   "dependencies": {
     "better-sqlite3": "^12.2.0",
@@ -43,5 +44,9 @@
     "@types/node": "^22.15.0",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dingdugan/chat.grep.git"
   }
 }

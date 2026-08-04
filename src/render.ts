@@ -1,5 +1,11 @@
+import os from 'node:os';
 import pc from 'picocolors';
 import type { SearchHit } from './search.js';
+
+export function tildify(p: string): string {
+  const home = os.homedir();
+  return p.startsWith(home) ? '~' + p.slice(home.length) : p;
+}
 
 function toolBadge(tool: string): string {
   if (tool === 'claude-code') return pc.bgMagenta(pc.white(' claude '));
@@ -47,7 +53,7 @@ export function renderHits(hits: SearchHit[], query: string): string {
         (h.extraHits > 0 ? pc.dim(`  (+${h.extraHits} more in this session)`) : ''),
     );
     lines.push(
-      '    ' + pc.dim(`session ${h.sessionId.slice(0, 8)} · ${h.sourcePath}`),
+      '    ' + pc.dim(`session ${h.sessionId.slice(0, 8)} · ${tildify(h.sourcePath)}`),
     );
     lines.push('    ' + pc.dim(`→ chatgrep export ${h.sessionId.slice(0, 8)}`));
     lines.push('');

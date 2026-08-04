@@ -6,7 +6,7 @@ import pc from 'picocolors';
 import { openDb } from './db.js';
 import { indexAll } from './indexer.js';
 import { search } from './search.js';
-import { renderHits, fmtDate, toolBadge } from './render.js';
+import { renderHits, fmtDate, toolBadge, tildify } from './render.js';
 import { findSession, exportMarkdown } from './export.js';
 import { embedMissing, modelIsCached } from './embeddings.js';
 import { buildCorpus, buildPrompt, detectBackend, parseSince, runDistill } from './distill.js';
@@ -51,7 +51,7 @@ program
           pc.dim(` (${s.sessions} sessions, ${s.messages} messages)`),
       );
     }
-    console.log(pc.dim(`index: ${dbPath()} · ${((Date.now() - t0) / 1000).toFixed(1)}s`));
+    console.log(pc.dim(`index: ${tildify(dbPath())} · ${((Date.now() - t0) / 1000).toFixed(1)}s`));
 
     if (opts.embed) {
       if (!modelIsCached()) {
@@ -235,7 +235,7 @@ program
         ? pc.dim(`semantic: ${chunks} embedded chunks`)
         : pc.dim('semantic: not enabled (run `chatgrep index --embed`)'),
     );
-    console.log(pc.dim(`db: ${dbPath()}`));
+    console.log(pc.dim(`db: ${tildify(dbPath())}`));
   });
 
 program.parseAsync().catch((err) => {

@@ -7,6 +7,8 @@ Your AI conversations are your second brain. Claude Code, Codex — every debugg
 1. **Search** — full-text + semantic hybrid, in natural language, across all your tools: *"that time we fixed CORS"* / *「那次修跨域问题的方案」*
 2. **Distill** — scan recent sessions for things you keep re-teaching your AI, and turn them into ready-to-paste CLAUDE.md entries. Search is pull; distill is the compounding loop.
 
+![chatgrep demo — natural-language Chinese query finding an English CORS fix, cross-tool stats, and the distill privacy gate](demo.gif)
+
 ## Privacy promise (read this first)
 
 - **Indexing and full-text search never touch the network.** Everything is stored in a single SQLite file on your machine (`~/.chatgrep/index.db`).
