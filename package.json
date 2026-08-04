@@ -1,0 +1,47 @@
+{
+  "name": "chatgrep",
+  "version": "0.1.0",
+  "description": "Search and distill all your AI coding sessions — Claude Code, Codex — fully local, CJK-friendly, with a compounding loop into CLAUDE.md.",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "codex",
+    "ai-coding",
+    "session-history",
+    "semantic-search",
+    "fts5",
+    "sqlite-vec",
+    "local-first",
+    "claude-md"
+  ],
+  "type": "module",
+  "bin": {
+    "chatgrep": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "test": "node --test --import tsx test/*.test.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "commander": "^14.0.0",
+    "picocolors": "^1.1.1",
+    "sqlite-vec": "^0.1.7-alpha.2"
+  },
+  "optionalDependencies": {
+    "@huggingface/transformers": "^3.5.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.15.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
